@@ -1,0 +1,23 @@
+# Build artifacts
+*.exe
+*.dll
+*.pdb
+
+# Archives
+*.zip
+*.rar
+*.7z
+
+# Windows OS metadata
+[Dd]esktop.ini
+$RECYCLE.BIN/
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# IDE/Local developer files
+.vs/
+.gemini/
+.system_generated/
+scratch/
+test_run/
