@@ -3,8 +3,9 @@
 A simple, beautiful Windows app to instantly switch your active power plan right from your system tray or a clean interface.
 
 <p align="center">
-  <img src="Assets/screenshot.png" alt="PowerPlan Switcher Interface" width="450" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
+  <img src="Assets/appicon.png" alt="PowerPlan Switcher Interface" width="450" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
 </p>
+
 
 <p align="center">
   <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases">
@@ -25,6 +26,12 @@ A simple, beautiful Windows app to instantly switch your active power plan right
 * **"Ultimate Performance" Auto-Unlock**: If your PC is missing Windows' hidden "Ultimate Performance" plan, the app automatically unlocks it for you.
 * **Lightweight**: Built to be fast. Uses almost zero CPU resources and less than 15MB of RAM.
 * **Dynamic Taskbar & System Tray Icons**: The app's taskbar and system tray icons change in real-time to match whatever power plan you choose.
+---
+## Application UI
+
+<p align="center">
+  <img src="Assets/screenshot.png" alt="PowerPlan Switcher Interface" width="450" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
+</p>
 
 ---
 
