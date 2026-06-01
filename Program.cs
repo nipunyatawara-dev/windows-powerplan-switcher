@@ -654,14 +654,6 @@ namespace PowerModeSwitcher
         public MainWindow()
         {
             InitializeComponent();
-            
-            // Force Rounded Corners on Windows 11 Frame
-            try
-            {
-                int cornerPreference = DWMWCP_ROUND;
-                DwmSetWindowAttribute(this.Handle, DWMWA_WINDOW_CORNER_PREFERENCE, ref cornerPreference, sizeof(int));
-            }
-            catch { }
         }
 
         private void InitializeComponent()
@@ -842,14 +834,13 @@ namespace PowerModeSwitcher
                 }
             };
             backgroundSyncTimer.Start();
-
-            // Initial Sync
-            SyncActivePlan(true);
         }
 
         // Programmatic native Title Bar theme toggler
         private void SetTitleBarTheme(bool lightMode)
         {
+            if (!this.IsHandleCreated) return; // Prevent premature handle creation!
+
             try
             {
                 // DWMWA_USE_IMMERSIVE_DARK_MODE: 1 = dark mode, 0 = light mode
@@ -946,7 +937,10 @@ namespace PowerModeSwitcher
             }
 
             // Sync main label text colors based on theme if plan matches
-            SyncActivePlan(true);
+            if (this.IsHandleCreated)
+            {
+                SyncActivePlan(true);
+            }
 
             // Force complete recursive invalidation of the entire window and child elements
             this.Invalidate(true);
@@ -1283,6 +1277,7 @@ namespace PowerModeSwitcher
 
         private void ShowForm()
         {
+            this.ShowInTaskbar = true;
             this.Show();
             this.WindowState = FormWindowState.Normal;
             this.Activate();
@@ -1304,10 +1299,17 @@ namespace PowerModeSwitcher
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing && chkMinimizeToTray.Checked)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;
-                this.Hide();
+                if (chkMinimizeToTray.Checked)
+                {
+                    e.Cancel = true;
+                    this.Hide();
+                }
+                else
+                {
+                    ExitApplication();
+                }
             }
             base.OnFormClosing(e);
         }
@@ -1526,6 +1528,35 @@ namespace PowerModeSwitcher
             return path;
         }
 
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+
+            // Force Rounded Corners on Windows 11 Frame
+            try
+            {
+                int cornerPreference = DWMWCP_ROUND;
+                DwmSetWindowAttribute(this.Handle, DWMWA_WINDOW_CORNER_PREFERENCE, ref cornerPreference, sizeof(int));
+            }
+            catch { }
+
+            // Ensure title bar theme is set when handle is created
+            SetTitleBarTheme(ThemeState.IsLightTheme);
+
+            // Perform initial plan sync and setup icons now that handle is created
+            SyncActivePlan(true);
+        }
+
+        protected override void OnVisibleChanged(EventArgs e)
+        {
+            base.OnVisibleChanged(e);
+            if (this.Visible)
+            {
+                // Re-apply title bar theme when window becomes visible
+                SetTitleBarTheme(ThemeState.IsLightTheme);
+            }
+        }
+
         // Startup Registry Utilities (HKCU, no admin rights required)
         private bool CheckStartupEnabled()
         {
@@ -1536,7 +1567,7 @@ namespace PowerModeSwitcher
                     if (key != null)
                     {
                         string val = key.GetValue("PowerModeSwitcher") as string;
-                        return val != null && val.Contains(Application.ExecutablePath);
+                        return val != null && val.IndexOf(Application.ExecutablePath, StringComparison.OrdinalIgnoreCase) >= 0;
                     }
                 }
             }
@@ -1622,20 +1653,24 @@ namespace PowerModeSwitcher
 
                 MainWindow mainWin = new MainWindow();
                 
-                // Read start parameters
+                // Read start parameters with robust parsing
                 bool startMinimized = false;
                 foreach (string arg in args)
                 {
-                    if (arg.ToLower() == "--minimized" || arg.ToLower() == "-m")
+                    if (arg != null)
                     {
-                        startMinimized = true;
-                        break;
+                        string cleaned = arg.Trim().ToLower().Replace("\"", "");
+                        if (cleaned == "--minimized" || cleaned == "-m")
+                        {
+                            startMinimized = true;
+                            break;
+                        }
                     }
                 }
 
                 if (startMinimized)
                 {
-                    // Hide the form on start to load directly into the tray
+                    // Configure startup state before handle creation
                     mainWin.WindowState = FormWindowState.Minimized;
                     mainWin.ShowInTaskbar = false;
                     
