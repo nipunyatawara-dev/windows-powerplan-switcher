@@ -1,9 +1,9 @@
-# PowerPlan Switcher
+# Windows PowerPlan Switcher
 
 A simple, beautiful Windows app to instantly switch your active power plan right from your system tray or a clean interface.
 
 <p align="center">
-  <img src="Assets/appicon.png" alt="PowerPlan Switcher Interface" width="450" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
+  <img src="Assets/appicon.png" alt="PowerPlan Switcher Interface" width="150" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
 </p>
 
 
@@ -30,7 +30,8 @@ A simple, beautiful Windows app to instantly switch your active power plan right
 ## Application UI
 
 <p align="center">
-  <img src="Assets/screenshot.png" alt="PowerPlan Switcher Interface" width="450" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
+  <img src="Assets/light-screenshot.png" alt="PowerPlan Switcher light mode Interface" width="400" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
+  <img src="Assets/dark-screenshot.png" alt="PowerPlan Switcher dark mode Interface" width="400" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
 </p>
 
 ---
