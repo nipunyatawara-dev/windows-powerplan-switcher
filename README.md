@@ -24,8 +24,6 @@ A simple, beautiful Windows app to instantly switch your active power plan right
   </a>
 </p>
 
----
-
 ## Features
 
 * **Fully Portable (Single File)**: Just download and run the `.exe` file! No installer, no setup, and no extra files or folders needed. You can put it anywhere (Desktop, Documents, etc.).
