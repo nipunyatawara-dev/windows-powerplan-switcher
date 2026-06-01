@@ -3,6 +3,24 @@
 A simple, beautiful Windows app to instantly switch your active power plan right from your system tray or a clean interface.
 
 <p align="center">
+  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases">
+    <img src="Assets/download-button.svg" alt="Download for Windows" width="200" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases">
+    <img src="https://img.shields.io/github/downloads/nipunyatawara-dev/windows-powerplan-switcher/total?color=blue" alt="Downloads" />
+  </a>
+  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases">
+    <img src="https://img.shields.io/github/v/release/nipunyatawara-dev/windows-powerplan-switcher?color=orange" alt="Latest Release" />
+  </a>
+  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher">
+    <img src="https://img.shields.io/badge/platform-Windows-blue" alt="Platform" />
+  </a>
+</p>
+
+<p align="center">
   <img src="Assets/screenshot.png" alt="PowerPlan Switcher Interface" width="450" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.3);" />
 </p>
 
