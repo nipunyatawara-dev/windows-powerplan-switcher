@@ -31,3 +31,4 @@ A simple, beautiful Windows app to instantly switch your active power plan right
 ## License
 
 This project is open-source and available under the MIT License.
+
