@@ -13,16 +13,10 @@ A simple, beautiful Windows app to instantly switch your active power plan right
 </p>
 
 <p align="center">
-  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases">
-    <img src="https://img.shields.io/github/downloads/nipunyatawara-dev/windows-powerplan-switcher/total?color=blue" alt="Downloads" />
-  </a>
-  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases">
-    <img src="https://img.shields.io/github/v/release/nipunyatawara-dev/windows-powerplan-switcher?color=orange" alt="Latest Release" />
-  </a>
-  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher">
-    <img src="https://img.shields.io/badge/platform-Windows-blue" alt="Platform" />
-  </a>
+  <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases"><img src="https://img.shields.io/github/downloads/nipunyatawara-dev/windows-powerplan-switcher/total?color=blue" alt="Downloads" /></a> <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher/releases"><img src="https://img.shields.io/github/v/release/nipunyatawara-dev/windows-powerplan-switcher?color=orange" alt="Latest Release" /></a> <a href="https://github.com/nipunyatawara-dev/windows-powerplan-switcher"><img src="https://img.shields.io/badge/platform-Windows-blue" alt="Platform" /></a>
 </p>
+
+---
 
 ## Features
 
